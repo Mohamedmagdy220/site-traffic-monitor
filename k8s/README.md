@@ -231,7 +231,7 @@ Then check:
 
 - Prometheus → Alerts
 
-![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/high%20vistor%20rate%20command.png0
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/high%20vistor%20rate%20command.png)
 ---
 
 ![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/firing%20alert%20(high%20visitor%20rate).png)
