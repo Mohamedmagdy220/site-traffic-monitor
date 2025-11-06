@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./banner.png" alt="Hello Node App Monitoring Banner" width="100%">
+  <img src="https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/project-image.png" alt="Hello Node App Monitoring Banner" width="100%">
 </p>
 
 <h1 align="center">📊 Hello Node App — Monitoring Stack</h1>
@@ -10,9 +10,6 @@
 </p>
 
 ---
-# Prometheus Monitoring App
-
-A complete Node.js + Prometheus + Grafana monitoring setup on Kubernetes.
 
 ## 🚀 Overview
 This project demonstrates how to:
@@ -85,7 +82,7 @@ kubectl apply -f k8s/
 
 ### grafana Dashboard
 
-![]{}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/custom-dashboard.png)
 ---
 
 
