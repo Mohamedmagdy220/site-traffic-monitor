@@ -1,0 +1,30 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: hello-node-email
+  namespace: monitoring
+  labels:
+    release: prometheus
+spec:
+  route:
+    receiver: "gmail"
+    matchers:
+      - name: alertname
+        value: HelloNodeDown
+  receivers:
+    - name: "gmail"
+      emailConfigs:
+        - to: "mohamedelngar062@gmail.com"          # البريد اللي هتوصله التنبيهات
+          from: "mohamedelngar062@gmail.com"             # حساب الإرسال (نفس الجيميل)
+          smarthost: "smtp.gmail.com:587"
+          authUsername: "mohamedelngar062@gmail.com"     # مباشرة، مش من Secret
+          authPassword:
+            name: gmail-secret
+            key: password
+          requireTLS: true
+          requireTLS: true
+          sendResolved: true
+          html: |
+            <b>Alert:</b> {{ .CommonLabels.alertname }}<br/>
+            <b>Namespace:</b> {{ .CommonLabels.namespace }}<br/>
+            <b>Description:</b> {{ .CommonAnnotations.description }}

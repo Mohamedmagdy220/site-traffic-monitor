@@ -1,0 +1,23 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: hello-node-slack
+  namespace: monitoring
+  labels:
+    release: prometheus
+spec:
+  route:
+    receiver: "slack-notifications"
+    matchers:
+      - name: alertname
+        value: HighVisitorRate
+  receivers:
+    - name: "slack-notifications"
+      slackConfigs:
+        - channel: "#high-visitor-rate"
+          sendResolved: true
+          apiURL:
+            key: webhook
+            name: slack-secret
+          text: "🚨 *Alert:* {{ .CommonAnnotations.summary }}"
+

@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: hello-node-servicemonitor
+  namespace: monitoring
+  labels:
+    release: prometheus  # لازم تكون نفس الـ label بتاعة الـ Prometheus instance
+spec:
+  selector:
+    matchLabels:
+      app: welcome-app
+  namespaceSelector:
+    matchNames:
+      - default
+    # لازم تطابق الـ label اللي في Service بتاعت التطبيق
+  endpoints:
+    - port: nodejs          # لازم يكون نفس اسم الـ port اللي في Service
+      path: /metrics
+

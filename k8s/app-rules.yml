@@ -1,0 +1,28 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: hello-node-rules
+  namespace: monitoring
+  labels:
+    app: kube-prometheus-stack
+    release: prometheus
+spec:
+  groups:
+    - name: hello-node-alerts
+      rules:
+        - alert: HelloNodeDown
+          expr: absent(up{namespace="default", service="welcome-app-service"})
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "Hello Node App is DOWN"
+            description: "The Hello Node application instance has been unreachable for more than 1 minute."
+
+        - alert: HighVisitorRate
+          expr: increase(hello_visitors_total[2m]) > 100
+          labels:
+            severity: info
+          annotations:
+            summary: "High Visitor Traffic"
+            description: "More than 100 requests per 2 minutes detected on Hello Node app."
