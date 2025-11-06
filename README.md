@@ -1,3 +1,15 @@
+<p align="center">
+  <img src="./banner.png" alt="Hello Node App Monitoring Banner" width="100%">
+</p>
+
+<h1 align="center">📊 Hello Node App — Monitoring Stack</h1>
+
+<p align="center">
+  <b>Node.js • Docker • Kubernetes • Prometheus • Grafana</b><br>
+  A complete monitoring setup for a Node.js web app running on Kubernetes, with Prometheus metrics, Alertmanager, and Grafana visualization.
+</p>
+
+---
 # Prometheus Monitoring App
 
 A complete Node.js + Prometheus + Grafana monitoring setup on Kubernetes.
