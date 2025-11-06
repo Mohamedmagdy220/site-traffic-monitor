@@ -27,4 +27,53 @@ This project demonstrates how to:
 cd my-node-app
 docker build -t <your-dockerhub-user>/my-node-app:latest .
 docker push <your-dockerhub-user>/my-node-app:latest
+```
+
+### 2️⃣ Deploy the App & Prometheus Stack
+```bash
+# Install Prometheus & Grafana (if not already)
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install monitoring prometheus-community/kube-prometheus-stack -n monitoring --create-namespace
+```
+
+
+### 3️⃣ Apply App Manifests
+
+```bash
+kubectl apply -f k8s/
+```
+
+### 📈 Access Dashboards
+
+- APP --> `http://<node-ip>:<port>`
+
+- Grafana → `kubectl expose service monitoring-grafana --name=monitoring-grafana-ext --type=NodePort> --port=3000 --target-port=3000 --namespace=monitoring` 
+
+- Default user: `admin`, pass: `prom-operator`
+
+- Prometheus → `kubectl expose service monitoring-kube-prometheus-prometheus --name=monitoring-kube-prometheus-prometheus-ext --type=NodePort --port=9090 --target-port=9090 --namespace=monitoring`
+
+- Alertmanager → `kubectl expose service monitoring-kube-prometheus-alertmanager --name=monitoring-kube-prometheus-alertmanager-ext --type=NodePort --port=9093 --target-port=9093 --namespace=monitoring`
+
+### 🔔 Alerts
+
+#### Configured for:
+
+- High error rates
+
+- App downtime
+
+#### Alertmanager integrations:
+
+- Email: via `alertmanager-email.yml`
+
+- Slack: via `slack-secret.yml`
+
+
+### grafana Dashboard
+
+![]{}
+---
+
 
