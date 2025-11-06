@@ -70,7 +70,7 @@ Access
 Visit http://<public ip>:<svc port>
 ```
 
-![]{https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/app.png}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/app.png)
 ---
 
 
@@ -94,7 +94,7 @@ kubectl get svc -n monitoring
 kubectl expose service monitoring-kube-prometheus-prometheus --name=monitoring-kube-prometheus-prometheus-ext --type=NodePort --port=9090 --target-port=9090 --namespace=monitoring
 http://<public ip >:<svc port>  → Status → Targets
 ```
-![]{https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/target%20in%20prometheus.png}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/target%20in%20prometheus.png)
 ---
 
 ### ⚠️ Step 3: Prometheus Rules (Alerts)
@@ -113,7 +113,7 @@ kubectl get svc -n monitoring
 kubectl expose service monitoring-kube-prometheus-prometheus --name=monitoring-kube-prometheus-prometheus-ext --type=NodePort --port=9090 --target-port=9090 --namespace=monitoring
 http://<public ip >:<prometheus-svc-port>/alerts
 ```
-![]{https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/start-prometheus.png}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/start-prometheus.png)
 ---
 
 ### 📬 Step 4: Alertmanager — Slack + Gmail
@@ -153,7 +153,7 @@ kubectl expose service monitoring-kube-prometheus-alertmanager --name=monitoring
 http://<public ip>:<alertmanager-svc-port>
 ```
 
-![]{https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/start-alertmanager.png}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/start-alertmanager.png)
 ---
 
 ### 📊 Step 5: Grafana Dashboard
@@ -164,7 +164,7 @@ kubectl expose service monitoring-grafana --name=monitoring-grafana-ext --type=N
 http://<public ip>:<grafana-svc-port>
 ```
 
-![]{https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/grafana.png}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/grafana.png)
 ---
 
 
@@ -175,11 +175,11 @@ user: admin          password: prom-operator
 ```
 
 - check alert-rules on prometheus:
-![]{https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/Alerts%20in%20Prometheus.png}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/Alerts%20in%20Prometheus.png)
 ---
 
 - check alert-rules on alertmanager:
-![]{https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/start-alertmanager.png}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/start-alertmanager.png)
 ---
 
 
@@ -198,28 +198,28 @@ kubectl scale deployment welcome-app-deployment --replicas=0
 
 - you will see it bending for 1 minute in alerts at prometheus 
 
-![]{https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/node-down-pending.png}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/node-down-pending.png)
 ---
 
 - after that you will see this alert become firing like that 
 
-![]{https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/firing-node-down-prometheus.png}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/firing-node-down-prometheus.png)
 ---
 
 - and you can see it in alert manger ui 
 
-![]{https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/node-down-in%20-alertmanager.png}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/node-down-in%20-alertmanager.png)
 ---
 
 - Gmail → Alert email
 
 - and alertmanager will send a message at email for firing like that 
 
-![]{https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/firing-node-down-at-gmail.png}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/firing-node-down-at-gmail.png)
 ---
 - you can running pods now and you should see another message on your mail like that
 
-![]{https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/resolved-at-gmail.png}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/resolved-at-gmail.png)
 ---
 
 #### second: check higher visitor rate alert 
@@ -231,10 +231,10 @@ Then check:
 
 - Prometheus → Alerts
 
-![]{https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/high%20vistor%20rate%20command.png}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/high%20vistor%20rate%20command.png0
 ---
 
-![]{https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/firing%20alert%20(high%20visitor%20rate).png}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/firing%20alert%20(high%20visitor%20rate).png)
 ---
 - Slack → Alert message
 >> you will get allert message at channel at slack
@@ -244,7 +244,7 @@ Then check:
 
 - you can see it here 
 
-![]{https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/custom-dashboard.png}
+![](https://github.com/Mohamedmagdy220/site-traffic-monitor/blob/main/images/custom-dashboard.png)
 ---
 
 
